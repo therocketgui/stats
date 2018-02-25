@@ -14,7 +14,5 @@ class CreateCoins < ActiveRecord::Migration[5.1]
       t.string :slack
       t.string :bitcointalk
       t.string :explorer
-
-      t.timestamps
   end
 end
