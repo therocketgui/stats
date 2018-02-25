@@ -1,0 +1,2 @@
+class CmcGbp < ApplicationRecord
+end
