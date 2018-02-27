@@ -7,38 +7,12 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :coins, only: [ :index, :show]
-
-      # resources :cmc_raws, only: [:show]
-      resources :cmc_raws do
-        collection do
-          get 'coin/data/:id' => 'cmcraws#show'
-        end
-      end
-
-      resources :cmc_usds do
-        collection do
-          get 'coin/trade/:id' => 'cmcusds#show'
-        end
-      end
-
-      resources :telegram_members do
-        collection do
-          get 'coin/telegram/members/:id' => 'telegrammembers#show'
-        end
-      end
-
-      resources :twitter_followers do
-        collection do
-          get 'coin/twitter/followers/:id' => 'twitterfollowers#show'
-        end
-      end
-
-      resources :twitter_tweets do
-        collection do
-          get 'coin/twitter/tweets/:id' => 'twittertweets#show'
-        end
-      end
-
+      resources :cmc_raws, only: [ :index, :show]
+      resources :cmc_usds, only: [ :index, :show]
+      resources :telegram_members, only: [ :index, :show]
+      resources :twitter_followers, only: [ :index, :show]
+      resources :twitter_tweets, only: [ :index, :show]
+      resources :coins, only: [ :index, :show]
     end
   end
 
