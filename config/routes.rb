@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       resources :telegram_members, only: [ :index, :show]
       resources :twitter_followers, only: [ :index, :show]
       resources :twitter_tweets, only: [ :index, :show]
-      resources :coins, only: [ :index, :show]
+      resources :reddits, only: [ :index, :show]
     end
   end
 
