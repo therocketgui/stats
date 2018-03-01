@@ -11,6 +11,17 @@ export function fetchCoins(){
     });
 }
 
+export function fetchCoin(coin_id){
+  return fetch(`/api/v1/coins/${coin_id}`)
+    .then(response => response.json())
+    .then((data) =>{
+      return{
+        type: 'FETCH_COIN',
+        payload: data
+      };
+    });
+}
+
 export function fetchCmcRaws(coin_id){
   return fetch(`/api/v1/cmc_raws/${coin_id}`)
     .then(response => response.json())

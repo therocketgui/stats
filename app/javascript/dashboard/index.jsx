@@ -12,6 +12,8 @@ import { createHistory as history } from 'history';
 
 // internal modules
 import App from './components/app';
+import CoinsShow from './containers/coins_show';
+import CoinsIndex from './containers/coins_index';
 
 // import '../assets/stylesheets/application.scss';
 
@@ -25,13 +27,23 @@ import cmcrawsReducer from './reducers/cmcraws_reducer'
 import cmcusdsReducer from './reducers/cmcusds_reducer'
 
 const initialState = {
-  coins: []
+  coins: [],
+  reddits: [],
+  telegrammembers: [],
+  twitterfollowers: [],
+  twittertweets: []
 };
 
 const identityReducer = (state = null) => state;
 // 'currentUser': prompt("What is your username?") || `anonymous${Math.floor(10 + (Math.random() * 90))}`
 const reducers = combineReducers({
-  coins: coinsReducer
+  coins: coinsReducer,
+  reddits: redditsReducer,
+  telegrammembers: telegrammembersReducer,
+  twitterfollowers: twitterfollowersReducer,
+  twittertweets: twitterfollowersReducer,
+  cmcraws: cmcrawsReducer,
+  cmcusds: cmcusdsReducer
 });
 
 // Middlewares
@@ -43,9 +55,8 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Switch>
-
-        <Route path="/" component={App} />
-
+        <Route path="/" exact component={CoinsIndex} />
+        <Route path="/coins/:id" component={CoinsShow} />
       </Switch>
     </Router>
   </Provider>,
