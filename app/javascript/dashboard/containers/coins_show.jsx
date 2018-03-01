@@ -26,7 +26,7 @@ class CoinsShow extends Component {
 
 function mapStateToProps(state, ownProps){
   const id = parseInt(ownProps.match.params.id, 10);
-  const coin = state.coin.find(p => p.id === id);
+  const coin = state.coins.find(p => p.coin_id === id);
   return { coin };
 }
 

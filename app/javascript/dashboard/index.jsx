@@ -8,7 +8,7 @@ import reduxPromise from 'redux-promise';
 
 // routing
 import { BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
-import { createHistory as history } from 'history';
+import createHistory as history from 'history';
 
 // internal modules
 import App from './components/app';
