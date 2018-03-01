@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
 
-import { Card } from 'antd';
+import { Card, List, Avatar } from 'antd';
 
 class Coin extends Component{
   componentDidMount(){
-
+    //<List
+    //itemLayout="horizontal"
+    //dataSource={data}
+    //renderItem={item => (
+    //  <List.Item>
+    //    <List.Item.Meta
+    //      avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+    //      title={<a href="https://ant.design">{item.title}</a>}
+    //      description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+    //    />
+    //  </List.Item>
+    //)}
+    ///>
   }
   render(){
     return(
@@ -26,6 +38,7 @@ class Coin extends Component{
     );
   }
 }
+
 
 
 export default Coin;
