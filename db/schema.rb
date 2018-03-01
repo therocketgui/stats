@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180227224543) do
+ActiveRecord::Schema.define(version: 20180301182825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20180227224543) do
     t.string "coin_id"
     t.string "name"
     t.string "symbol"
-    t.string "type_name"
+    t.string "type_data"
     t.float "data"
     t.string "scraped_at"
     t.datetime "created_at", null: false
