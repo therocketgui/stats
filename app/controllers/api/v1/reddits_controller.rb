@@ -6,7 +6,8 @@ class Api::V1::RedditsController < ActionController::Base
   end
 
   def show
-    coin = Reddit.where(coin_id: params[:id])
+    # coin = Reddit.where(coin_id: params[:id])
+    coin = Reddit.where(["coin_id = ? and type_name = ?", params[:id], "reddit_subscribers"])
     render json: coin
   end
 

@@ -11,6 +11,14 @@ export function fetchCoins(){
     });
 }
 
+export function searchCoins(coins, search){
+  return{
+        type: 'SEARCH_COINS',
+        coins: coins,
+        search: search
+    };
+}
+
 export function fetchCoin(coin_id){
   return fetch(`/api/v1/coins/${coin_id}`)
     .then(response => response.json())
@@ -78,7 +86,7 @@ export function fetchTwitterTweets(coin_id){
 }
 
 export function fetchTelegramMembers(coin_id){
-  return fetch(`/api/v1/twitter_members/${coin_id}`)
+  return fetch(`/api/v1/telegram_members/${coin_id}`)
     .then(response => response.json())
     .then((data) =>{
       return{

@@ -8,9 +8,9 @@ import reduxPromise from 'redux-promise';
 
 // routing
 import { BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
-// import createHistory as history from 'history';
-import createHistory from 'history/createBrowserHistory'
-const history = createHistory()
+import { createHistory as history } from 'history';
+// import createHistory from 'history/createBrowserHistory'
+// const history = createHistory()
 
 // internal modules
 import App from './components/app';
@@ -21,19 +21,21 @@ import CoinsIndex from './containers/coins_index';
 
 // State and reducers
 import coinsReducer from './reducers/coins_reducer';
-import redditsReducer from './reducers/reddits_reducer'
-import telegrammembersReducer from './reducers/telegrammembers_reducer'
-import twitterfollowersReducer from './reducers/twitterfollowers_reducer'
-import twittertweetsReducer from './reducers/twittertweets_reducer'
-import cmcrawsReducer from './reducers/cmcraws_reducer'
-import cmcusdsReducer from './reducers/cmcusds_reducer'
+import redditsReducer from './reducers/reddits_reducer';
+import telegrammembersReducer from './reducers/telegrammembers_reducer';
+import twitterfollowersReducer from './reducers/twitterfollowers_reducer';
+import twittertweetsReducer from './reducers/twittertweets_reducer';
+import cmcrawsReducer from './reducers/cmcraws_reducer';
+import cmcusdsReducer from './reducers/cmcusds_reducer';
 
 const initialState = {
   coins: [],
   reddits: [],
   telegrammembers: [],
   twitterfollowers: [],
-  twittertweets: []
+  twittertweets: [],
+  cmcraws: [],
+  cmcusds: []
 };
 
 const identityReducer = (state = null) => state;
@@ -58,7 +60,7 @@ ReactDOM.render(
     <Router history={history}>
       <Switch>
         <Route path="/" exact component={CoinsIndex} />
-        <Route path="/coins/:id" component={CoinsShow} />
+        <Route path="/coins/:id" exact component={CoinsShow} />
       </Switch>
     </Router>
   </Provider>,

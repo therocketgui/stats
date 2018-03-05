@@ -4,7 +4,7 @@ import CoinList from './coin_list';
 class CoinsIndex extends Component {
   render(){
     return (
-      <div className="app">
+      <div className="app app-index">
         <CoinList />
       </div>
     );

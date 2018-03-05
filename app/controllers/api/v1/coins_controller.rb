@@ -10,7 +10,7 @@ class Api::V1::CoinsController < ActionController::Base
   end
 
   def show
-    coin = Coin.find(params[:id])
+    coin = Coin.where(coin_id: params[:id])
     render json: coin
   end
 

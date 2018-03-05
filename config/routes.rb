@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get "/coins", to: "pages#home"
+  get "/coins/:id", to: "pages#home"
 
   # API
   namespace :api, defaults: { format: :json } do
