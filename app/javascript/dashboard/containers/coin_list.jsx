@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+  import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchCoins, searchCoins } from '../actions';
+import { fetchCoins, searchCoins, searchCoinsMe, fetchMyCoins, fetchCoinsMe } from '../actions';
 import Coin from './coin';
 import { Link } from 'react-router-dom';
 import SearchBar from '../containers/search_bar';
@@ -12,19 +12,29 @@ class CoinList extends Component{
     this.state = {coinsearch: []};
   }
   componentWillMount(){
-    this.props.fetchCoins();
-  }
-  componentDidUpdate(){
-    if (this.state.coinsearch.length == 0){
-      this.setState({
-        coinsearch: this.props.coins
-      });
-      // console.log(this.state.coinsearch);
+    if (this.props.userid) {
+      this.props.fetchCoinsMe(this.props.userid);
+    }else{
+      this.props.fetchCoins();
     }
+    this.props.fetchMyCoins(this.props.currentUser);
   }
+
   search = (query) => {
      // SEARCH HANDLER
-     this.props.searchCoins(this.state.coinsearch, query);
+     if(query){
+      if(this.props.userid){
+        this.props.searchCoinsMe(this.props.userid, query);
+      }else{
+        this.props.searchCoins(query);
+      }
+     }else{
+      if(this.props.userid){
+        this.props.fetchCoins(this.props.userid, query);
+      }else{
+        this.props.fetchCoins();
+      }
+     }
      console.log(query);
   };
   render(){
@@ -51,14 +61,19 @@ class CoinList extends Component{
 
 function mapStateToProps(state){
   return{
-    coins: state.coins
+    coins: state.coins,
+    mycoins: state.mycoins,
+    currentUser: state.currentUser
   };
 }
 
 function mapDispatchToProps(dispatch){
   return bindActionCreators(
     {fetchCoins: fetchCoins,
-     searchCoins: searchCoins},
+     fetchCoinsMe: fetchCoinsMe,
+     fetchMyCoins: fetchMyCoins,
+     searchCoins: searchCoins,
+     searchCoinsMe: searchCoinsMe},
     dispatch
   );
 }

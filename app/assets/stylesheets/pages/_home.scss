@@ -1,1 +1,136 @@
 // Specific CSS for your home-page
+.home{
+  min-height:100%;
+  height:100%;
+  background-color: #ffffff;
+  .row{
+    height:100%;
+  }
+}
+
+.home-left{
+  background-color:#f7f8fa;
+  float:left;
+  width:50%;
+  height:100%;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-right{
+  float:right;
+  width:50%;
+  height:100%;
+  padding:60px;
+  .home-logo{
+    text-align:center;
+    img{
+      width:75px;
+    }
+  }
+  .home-title{
+    text-align:center;
+    margin-bottom:20px;
+    padding:2px 35px 5px 35px;
+    h1{
+    font-size: 55px;
+    font-weight: 550;
+    line-height: 65px;
+    }
+  }
+  .home-image{
+    text-align:center;
+    img{
+      width:450px;
+    }
+  }
+}
+.home-left{
+
+}
+.user-form-container{
+  width:100%;
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-form{
+  box-sizing: border-box;
+  // position: absolute;
+  width: 400px;
+  padding: 30px;
+  margin: 0 auto;
+  border: 1px solid #d5dee6;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 0 1px rgba(67,90,111,.415), 0 2px 4px -2px rgba(67,90,111,.301);
+  box-shadow: 0 0 1px rgba(67,90,111,.415), 0 2px 4px -2px rgba(67,90,111,.301);
+  background: #fff;
+  -webkit-animation-duration: .4s;
+  animation-duration: .4s;
+  -webkit-animation-timing-function: cubic-bezier(.305,.555,.405,1.025);
+  animation-timing-function: cubic-bezier(.305,.555,.405,1.025);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+
+  h2{
+    text-align:center;
+    font-size:30px;
+  }
+  .control-label{
+    line-height: 22px;
+    letter-spacing: -.05px;
+    margin-bottom: 8px;
+    margin-bottom: .5rem;
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1f4160;
+  }
+  .user-form-links{
+    padding-top:20px;
+  }
+  a{
+    letter-spacing: -.05px;
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1f4160;
+    text-align:center;
+  }
+  abbr{
+    display:none;
+  }
+  .btn-default{
+    width:100%;
+    background-color: #47b881;
+    background-image: -webkit-gradient(linear,left bottom,left top,from(#3faf77),to(#47b881));
+    background-image: linear-gradient(0deg,#3faf77,#47b881);
+    -webkit-box-shadow: inset 0 0 0 1px rgba(67,90,111,.204), inset 0 -1px 1px 0 rgba(67,90,111,.204);
+    box-shadow: inset 0 0 0 1px rgba(67,90,111,.204), inset 0 -1px 1px 0 rgba(67,90,111,.204);
+    border-radius: 4px;
+    text-transform: capitalize;
+    border: 0;
+    color: #fff;
+    display: inline-block;
+    line-height: 16px;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    -webkit-transition: .2s;
+    transition: .2s;
+    -webkit-transition-property: background-color,color,opacity,-webkit-box-shadow;
+    transition-property: background-color,color,opacity,-webkit-box-shadow;
+    transition-property: background-color,color,box-shadow,opacity;
+    transition-property: background-color,color,box-shadow,opacity,-webkit-box-shadow;
+    cursor: pointer;
+    padding: 10px 20px;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+

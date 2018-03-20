@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180301204128) do
+ActiveRecord::Schema.define(version: 20180320220810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20180301204128) do
     t.string "symbol"
     t.string "type_name"
     t.float "data"
-    t.string "scraped_at"
+    t.float "scraped_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20180301204128) do
     t.string "symbol"
     t.string "type_name"
     t.float "data"
-    t.string "scraped_at"
+    t.float "scraped_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -53,6 +53,59 @@ ActiveRecord::Schema.define(version: 20180301204128) do
     t.string "explorer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "price_btc"
+    t.float "available_supply"
+    t.float "total_supply"
+    t.float "reddit_subscribers"
+    t.float "reddit_active_accounts"
+    t.float "telegram_members"
+    t.float "twitter_followers"
+    t.float "twitter_tweets"
+    t.float "price_usd"
+    t.float "h24_volume_usd"
+    t.float "market_cap_usd"
+    t.float "price_btc_24h"
+    t.float "reddit_subscribers_24h"
+    t.float "reddit_active_accounts_24h"
+    t.float "telegram_members_24h"
+    t.float "twitter_followers_24h"
+    t.float "twitter_tweets_24h"
+    t.float "price_usd_24h"
+    t.float "h24_volume_usd_24h"
+    t.float "market_cap_usd_24h"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.string "symbol"
+    t.string "event_title"
+    t.string "event_description"
+    t.string "event_date"
+    t.string "event_source"
+    t.float "event_timestamp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "markets", force: :cascade do |t|
+    t.string "coin_id"
+    t.string "name"
+    t.string "symbol"
+    t.string "type_name"
+    t.float "data"
+    t.string "market_name"
+    t.string "market_pair"
+    t.string "market_website"
+    t.float "scraped_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "my_coins", force: :cascade do |t|
+    t.integer "coin_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reddits", force: :cascade do |t|
@@ -61,7 +114,7 @@ ActiveRecord::Schema.define(version: 20180301204128) do
     t.string "symbol"
     t.string "type_name"
     t.float "data"
-    t.string "scraped_at"
+    t.float "scraped_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -72,7 +125,7 @@ ActiveRecord::Schema.define(version: 20180301204128) do
     t.string "symbol"
     t.string "type_name"
     t.float "data"
-    t.string "scraped_at"
+    t.float "scraped_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -83,7 +136,7 @@ ActiveRecord::Schema.define(version: 20180301204128) do
     t.string "symbol"
     t.string "type_name"
     t.float "data"
-    t.string "scraped_at"
+    t.float "scraped_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -94,7 +147,7 @@ ActiveRecord::Schema.define(version: 20180301204128) do
     t.string "symbol"
     t.string "type_name"
     t.float "data"
-    t.string "scraped_at"
+    t.float "scraped_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

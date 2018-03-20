@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Card, List, Avatar } from 'antd';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchCoins } from '../actions';
 import { Link } from 'react-router-dom';
 import github_logo from '../images/github.svg';
 import reddit_logo from '../images/reddit.svg';
@@ -16,8 +15,24 @@ import token_logo from '../images/token.svg';
 import website_logo from '../images/website.svg';
 import slack_logo from '../images/slack.svg';
 
+import { createMyCoin, deleteMyCoin } from '../actions';
+
+import { Checkbox } from 'antd';
+
 
 class Coin extends Component{
+  constructor(props){
+    super(props);
+
+    let my_coins = []
+    this.props.mycoins.map((mycoin) => {my_coins.push(mycoin.coin_id)})
+    if (my_coins.includes(this.props.coin.id)){
+      this.state = {checked: true};
+    }else{
+      this.state = {checked: false};
+    }
+
+  }
   componentDidMount(){
 
   }
@@ -37,7 +52,7 @@ class Coin extends Component{
   }
   getSocialList(coin){
     let social_list = [];
-    if(coin.website){social_list.push({'site': coin.github, 'logo': website_logo })};
+    if(coin.website){social_list.push({'site': coin.website, 'logo': website_logo })};
     if(coin.github){social_list.push({'site': coin.github, 'logo': github_logo })};
     if(coin.reddit){social_list.push({'site': coin.reddit, 'logo': reddit_logo })};
     if(coin.twitter){social_list.push({'site': coin.twitter, 'logo': twitter_logo })};
@@ -49,14 +64,30 @@ class Coin extends Component{
     return social_list.map((social) => {
       return (
         <div className="elem">
-          <a href={social.site} key={social.site} ><img src={social.logo} alt=""/></a>
+          <a href={social.site} ><img src={social.logo} alt=""/></a>
         </div>
         );
+    });
+  }
+
+  onChange = (e) => {
+    // TODO DELETE IF CHECKED = FALSE
+    if (e.target.checked == true){this.props.createMyCoin(this.props.currentUser, this.props.coin.id)
+    }else{
+      const my_coin = this.props.mycoins.find(mycoin => (mycoin.coin_id === this.props.coin.id))
+      this.props.deleteMyCoin(this.props.currentUser, my_coin.id)
+    }
+
+    this.setState({
+      checked: e.target.checked,
     });
   }
   render(){
     return(
         <tr>
+            <td className="coin-checkbox">
+              <Checkbox checked={this.state.checked} onChange={this.onChange} />
+            </td>
             <td>
               <Link to={`/coins/${this.props.coin.coin_id}`} key={this.props.coin.id}>
                 <div className="row-box row-box-1">
@@ -75,5 +106,19 @@ class Coin extends Component{
   }
 }
 
+function mapStateToProps(state){
+  return{
+    currentUser: state.currentUser,
+    mycoins: state.mycoins
+  };
+}
 
-export default Coin;
+function mapDispatchToProps(dispatch){
+  return bindActionCreators(
+    {createMyCoin: createMyCoin,
+      deleteMyCoin:deleteMyCoin},
+    dispatch
+  );
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Coin);

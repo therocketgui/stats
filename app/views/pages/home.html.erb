@@ -1,1 +1,27 @@
-<div id="root"></div>
+<div class="home">
+  <div class="row">
+    <div class="home-left">
+      <div class="home-main">
+        <div class="user-form">
+          <!-- <input type="text">
+          <input type="text">
+          <input type="text">
+          <button>Sign Up</button> -->
+          <%= render 'devise/registrations/new' %>
+        </div>
+      </div>
+    </div>
+    <div class="home-right">
+      <div class="home-logo">
+        <%= image_tag "coin.svg", class: "" %>
+      </div>
+      <div class="home-title">
+          <h1>The Home Of All Your Crypto Data</h1>
+      </div>
+      <div class="home-image">
+        <%= image_tag "data.svg", class: "" %>
+      </div>
+    </div>
+  </div>
+</div>
+

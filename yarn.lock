@@ -5593,6 +5593,12 @@ react-lazy-load@^3.0.12:
     lodash.throttle "^4.0.0"
     prop-types "^15.5.8"
 
+react-number-format@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/react-number-format/-/react-number-format-3.2.0.tgz#83b542317d5d7403435a93dce8e6f9dc0f46e0f3"
+  dependencies:
+    prop-types "^15.6.0"
+
 react-redux@^5.0.7:
   version "5.0.7"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.7.tgz#0dc1076d9afb4670f993ffaef44b8f8c1155a4c8"

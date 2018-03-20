@@ -9,4 +9,9 @@ class Api::V1::CmcRawsController < ActionController::Base
     render json: coin
   end
 
+  def price_btc
+    coin = CmcRaw.where(["coin_id = ? and type_name = ?", params[:id], "price_btc"])
+    render json: coin
+  end
+
 end
